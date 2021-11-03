@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
-    stats: 'verbose',
+    // stats: 'verbose',
     module: {
         rules: [
             {
@@ -44,6 +44,8 @@ module.exports = {
         })
     ],
     output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.min.js',
         libraryTarget: 'var',
         library: 'Client'
     },

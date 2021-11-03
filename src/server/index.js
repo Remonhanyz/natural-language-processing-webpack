@@ -1,24 +1,28 @@
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
-const dotenv = require('dotenv');
+import path from 'path'
+import express from 'express'
+import mockAPIResponse from './mockAPI.js'
+import dotenv from 'dotenv'
+import fetch from "node-fetch"
+
 const app = express()
-var textapi = new meaningcloud({
-    application_key: process.env.API_KEY
-});
-  
+// var FormData = require('form-data');
 
+// var textapi = new meaningcloud({
+//     application_key: process.env.API_KEY
+// });
 
-
-
-const formdata = new FormData();
-formdata.append("key", process.env.API_KEY);
-formdata.append("txt", "YOUR TEXT HERE");
-formdata.append("lang", "en");  // 2-letter code, like en es fr ...
+// const formdata = new FormData();
+// formdata.append("key", process.env.API_KEY);
+// formdata.append("txt", "YOUR TEXT HERE");
+// formdata.append("lang", "en");  // 2-letter code, like en es fr ...
 
 const requestOptions = {
   method: 'POST',
-  body: formdata,
+  body: {
+    "key": process.env.API_KEY,
+    "txt": "YOUR TEXT HERE",
+    "lang": "en",
+  },
   redirect: 'follow'
 };
 
@@ -50,8 +54,8 @@ app.get('/', function (req, res) {
 dotenv.config();
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081!')
 })
 
 app.get('/test', function (req, res) {

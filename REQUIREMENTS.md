@@ -12,9 +12,9 @@
 
 - [ ] Make one request to the Aylien API
 
-- [ ] Use Sass for styling
+- [+] Use Sass for styling
 
-- [ ] Minify js and styles in the production environment
+- [+] Minify js and styles in the production environment
 
 - [ ] Response from the API must be added to the view for a user to see 
 

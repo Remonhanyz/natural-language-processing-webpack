@@ -1,13 +1,27 @@
+# NPL
+npl is a website that uses meaning cloud api to analyse any given article by providing its url
 
-## After the Aylien API
+## Installation
+```bash
+npm install
+```
 
-Once you are hooked up to the Aylien API, you are most of the way there! Along with making sure you are following all the requirements in the project rubric in the classroom, here are a few other steps to make sure you take.
+## Built With
 
-- Parse the response body to dynamically fill content on the page.
-- Test that the server and form submission work, making sure to also handle error responses if the user input does not match API requirements.
-- Go back to the web pack config and add the setup for service workers. 
-- Test that the site is now available even when you stop your local server
+This project is built using the following major frameworks/libraries.
+
+* [jest.js](https://jestjs.io/)
+* [webpack](https://webpack.js.org/)
+* [sass](https://sass-lang.com/)
+* [node.js](https://nodejs.org)
+* [express.js](https://expressjs.com/)
+
+## Usage
+
+You can use the website by providing URL to an article and press submit and an analysis of the article will be shown in the page, but if you type an invalid URL an alert will apear
+
+_An article URL for testing [For a More Creative Brain Follow These 5 Steps](https://jamesclear.com/five-step-creative-process)_
 
 ## Deploying
 
-A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
+this ptoject is deployed [here on Netlify](https://www.netlify.com/).

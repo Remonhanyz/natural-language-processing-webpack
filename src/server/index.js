@@ -1,6 +1,5 @@
 import path from "path";
 import express from "express";
-import mockAPIResponse from "./mockAPI.js";
 import dotenv from "dotenv";
 import fetch from "node-fetch";
 import cors from "cors";
@@ -27,9 +26,11 @@ app.get("/", function (req, res) {
   res.sendFile(path.resolve("src/client/views/index.html"));
 });
 
-app.listen(port, function () {
-  console.log(`Example app listening on port ${port}!`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, function () {
+    console.log(`Example app listening on port ${port}!`);
+  });
+}
 
 app.post("/posturl", (req, res) => {
   //request data
@@ -46,7 +47,7 @@ app.post("/posturl", (req, res) => {
 
   async function getData() {
     try {
-      const response = await fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions);      
+      const response = await fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions);
       return response
     } catch (error) {
       console.log(`error: ${error}`)
@@ -62,13 +63,13 @@ app.post("/posturl", (req, res) => {
       status,
       body
     }) => {
-      console.log(body)
+      // console.log(body)
       const data = {
-        score_tag : body.score_tag,
-        agreement : body.agreement,
-        subjectivity : body.subjectivity,
-        confidence : body.confidence,
-        irony : body.irony
+        score_tag: body.score_tag,
+        agreement: body.agreement,
+        subjectivity: body.subjectivity,
+        confidence: body.confidence,
+        irony: body.irony
       }
       res.send(data);
     })
@@ -76,34 +77,5 @@ app.post("/posturl", (req, res) => {
 
 })
 
-// .then((response) => ({
-//   status: response.status,
-//   body: response.json(),
-// }))
-// .then(({
-//   status,
-//   body
-// }) => console.log(status, body))
-// .catch((error) => console.log("error", error));
-
-// designates what port the app will listen to for incoming requests
-
-app.get("/test", function (req, res) {
-  res.send(mockAPIResponse);
-});
 
 export default app;
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // "build-dev": "webpack-dev-server  --config webpack.dev.js --open",

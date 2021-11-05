@@ -22,9 +22,6 @@ app.use(express.static("dist"));
 //port no.
 let port = 8081;
 
-let url;
-console.log(__dirname);
-
 app.get("/", function (req, res) {
   // res.sendFile('dist/index.html')
   res.sendFile(path.resolve("src/client/views/index.html"));
@@ -49,7 +46,7 @@ app.post("/posturl", (req, res) => {
 
   async function getData() {
     try {
-      const response = await fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions);
+      const response = await fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions);      
       return response
     } catch (error) {
       console.log(`error: ${error}`)
@@ -57,18 +54,25 @@ app.post("/posturl", (req, res) => {
   }
 
   getData()
-    .then((response) => ({
-      status: response.status,
-      body: response.json(),
+    .then(async (res) => ({
+      status: await res.status,
+      body: await res.json(),
     }))
-    .then(({
+    .then(async ({
       status,
       body
     }) => {
       console.log(body)
-      res.send(body);
+      const data = {
+        score_tag : body.score_tag,
+        agreement : body.agreement,
+        subjectivity : body.subjectivity,
+        confidence : body.confidence,
+        irony : body.irony
+      }
+      res.send(data);
     })
-    .catch((error) => console.log("error", error));
+    .catch(async (error) => console.log("error", error));
 
 })
 
@@ -89,3 +93,17 @@ app.get("/test", function (req, res) {
 });
 
 export default app;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // "build-dev": "webpack-dev-server  --config webpack.dev.js --open",

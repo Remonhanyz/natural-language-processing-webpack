@@ -1,7 +1,10 @@
+@import 'colors.scss';
+
 form {
     border: 1px solid #545454;
     border-radius: 3px;
     padding: 40px;
+    background-color: rgba($text, .15);
 }
 
 input {

@@ -22,9 +22,14 @@ function handleSubmit(event) {
 
             })
                 // fetch('http://localhost:8081/posturl')
-                .then(res => res.json())
+                // .then(res => res.json())
                 .then(function (res) {
-                    document.getElementById('results').innerHTML = res
+                    document.getElementById('results').innerHTML = `
+                    score_tag : ${res.score_tag} <br>
+                    agreement : ${res.agreement} <br>
+                    subjectivity : ${res.subjectivity} <br>
+                    confidence : ${res.confidence} <br>
+                    irony : ${res.irony}`
                 })
         }
         sendData()

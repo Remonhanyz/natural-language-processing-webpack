@@ -24,4 +24,4 @@ _An article URL for testing [For a More Creative Brain Follow These 5 Steps](htt
 
 ## Deploying
 
-this ptoject is deployed [here on Netlify](https://www.netlify.com/).
+this ptoject is deployed [here on Netlify](https://udacity-npl.netlify.app/).

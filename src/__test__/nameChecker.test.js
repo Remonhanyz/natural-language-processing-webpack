@@ -26,35 +26,10 @@ describe("Testing the Check Name functionality", () => {
         const fn = jest.fn();
         urls.forEach(element => {
             when(fn).calledWith(element).mockReturnValue(true);
-
-            // expect(nameChecker(element)).toBeTruthy()
         });
 
         urls.forEach(element => {
             when(fn).calledWith(element).mockReturnValue(false);
         });
-        // invalidurls.forEach(element => {
-        //     expect(!nameChecker(element)).toBeTruthy()
-        // });
-        
-
-
-
-
-        // const mockCallback = jest.fn()
-        // forEach(names, mockCallback);
-        // expect(mockCallback.mock.results[0].value).toBeCalled();
-        // // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output
-        // // The general syntax is `expect(myFunction(arg1, arg2, ...)).toEqual(expectedValue);`, where `toEqual()` is a matcher
-        // // for (let i=0; i<names.length;i++) {
-        // //     // jest.spyOn(global, 'alert').mockImplementation(() => {});
-        // //     // Object.defineProperty(global, "window", {
-        // //     //     value: {
-        // //     //        alert: jest.fn(),
-        // //     //     },
-        // //     //  });
-        // //     nameChecker(names[i])
-        // //     expect(global.alert).toBeCalled();
-        // // }
     })
 });

@@ -22,8 +22,8 @@ app.use(express.static("dist"));
 let port = 8081;
 
 app.get("/", function (req, res) {
-  // res.sendFile('dist/index.html')
-  res.sendFile(path.resolve("src/client/views/index.html"));
+  res.sendFile(path.resolve('dist/index.html'))
+  // res.sendFile(path.resolve("src/client/views/index.html"));
 });
 
 if (process.env.NODE_ENV !== 'test') {
